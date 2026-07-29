@@ -250,6 +250,16 @@
     box-shadow:0 0 0 1px rgba(66,172,185,0.3), 0 0 14px rgba(66,172,185,0.4);
   }
   .stack-row .left{display:flex; align-items:center; gap:14px;}
+  .stack-row .thumb{
+  width:44px;
+  height:44px;
+  border-radius:8px;
+  object-fit:cover;
+  flex-shrink:0;
+  background:var(--cream);
+  border:1px solid var(--line);
+  padding:4px;
+}
   .stack-row .diamond{color:var(--teal); flex-shrink:0;}
   .stack-row .name{font-weight:500; font-size:14.5px; color:var(--navy-deep);}
   .stack-row .value{font-weight:600; color:var(--teal); font-size:14px; white-space:nowrap;}
@@ -628,16 +638,65 @@
     </div>
   </section>
 
-  <!-- VALUE STACK STRIP -->
+<!-- VALUE STACK STRIP -->
   <section class="stack">
     <div class="wrap-narrow">
       <div class="stack-grid">
-        <div class="stack-row"><div class="left"><span class="diamond"></span><span class="name">Live VIP Q&A + coaching call with Lauren</span></div><span class="value">$97 value</span></div>
-        <div class="stack-row"><div class="left"><span class="diamond"></span><span class="name">Travel Sports Mom Survival Guide</span></div><span class="value">$47 value</span></div>
-        <div class="stack-row"><div class="left"><span class="diamond"></span><span class="name">AI Family Meal Planner</span></div><span class="value">$97 value</span></div>
-        <div class="stack-row"><div class="left"><span class="diamond"></span><span class="name">30 Days of Home Workouts</span></div><span class="value">$97 value</span></div>
-        <div class="stack-row"><div class="left"><span class="diamond"></span><span class="name">Lifetime Replay Access</span></div><span class="value">$47 value</span></div>
-        <div class="stack-row"><div class="left"><span class="diamond"></span><span class="name">Bonus: Your First Week, Mapped</span></div><span class="value">$37 value</span></div>
+
+        <div class="stack-row">
+          <div class="left">
+            <img class="thumb" src="https://raw.githubusercontent.com/daudmirza/strong-mom-funnels/main/laptop.png" alt="">
+            <span class="diamond"></span>
+            <span class="name">Live VIP Q&A + coaching call with Lauren</span>
+          </div>
+          <span class="value">$97 value</span>
+        </div>
+
+        <div class="stack-row">
+          <div class="left">
+            <img class="thumb" src="https://raw.githubusercontent.com/daudmirza/strong-mom-funnels/main/book.png" alt="">
+            <span class="diamond"></span>
+            <span class="name">Travel Sports Mom Survival Guide</span>
+          </div>
+          <span class="value">$47 value</span>
+        </div>
+
+        <div class="stack-row">
+          <div class="left">
+            <img class="thumb" src="https://raw.githubusercontent.com/daudmirza/strong-mom-funnels/main/phone1.png" alt="">
+            <span class="diamond"></span>
+            <span class="name">AI Family Meal Planner</span>
+          </div>
+          <span class="value">$97 value</span>
+        </div>
+
+        <div class="stack-row">
+          <div class="left">
+            <img class="thumb" src="https://raw.githubusercontent.com/daudmirza/strong-mom-funnels/main/tablet.png" alt="">
+            <span class="diamond"></span>
+            <span class="name">30 Days of Home Workouts</span>
+          </div>
+          <span class="value">$97 value</span>
+        </div>
+
+        <div class="stack-row">
+          <div class="left">
+            <img class="thumb" src="https://raw.githubusercontent.com/daudmirza/strong-mom-funnels/main/phone2.png" alt="">
+            <span class="diamond"></span>
+            <span class="name">Lifetime Replay Access</span>
+          </div>
+          <span class="value">$47 value</span>
+        </div>
+
+        <div class="stack-row">
+          <div class="left">
+            <img class="thumb" src="https://raw.githubusercontent.com/daudmirza/strong-mom-funnels/main/bnus.png" alt="">
+            <span class="diamond"></span>
+            <span class="name">Bonus: Your First Week, Mapped</span>
+          </div>
+          <span class="value">$37 value</span>
+        </div>
+
       </div>
       <div class="stack-total"><span>Total value</span><span class="amt">$422</span></div>
     </div>
