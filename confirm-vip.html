@@ -72,8 +72,22 @@
   .btn-sm{padding:11px 20px; font-size:13.5px;}
 
   /* ===== CONFIRM HERO ===== */
-  .confirm-hero{position:relative; background:linear-gradient(135deg, #EAF4F3 0%, #FBF9F6 45%, #FDF2F6 100%); overflow:hidden; padding:64px 0 56px;}
-  .confirm-hero .deco{position:absolute; pointer-events:none; z-index:1;}
+  .confirm-hero{
+    position:relative; overflow:hidden; padding:84px 0 68px;
+    background:
+      radial-gradient(circle at 15% 15%, rgba(66,172,185,0.18), transparent 45%),
+      radial-gradient(circle at 88% 10%, rgba(231,108,171,0.18), transparent 45%),
+      radial-gradient(circle at 50% 105%, rgba(66,172,185,0.12), transparent 55%),
+      linear-gradient(135deg, #EAF4F3 0%, #FBF9F6 45%, #FDF2F6 100%);
+  }
+  .confirm-hero::before{
+    content:""; position:absolute; inset:0; pointer-events:none; z-index:0;
+    background-image:radial-gradient(rgba(27,74,82,0.09) 1px, transparent 1px);
+    background-size:24px 24px;
+    -webkit-mask-image:radial-gradient(ellipse 65% 60% at 50% 25%, black 25%, transparent 72%);
+    mask-image:radial-gradient(ellipse 65% 60% at 50% 25%, black 25%, transparent 72%);
+  }
+  .confirm-hero .deco{position:absolute; pointer-events:none; z-index:0;}
   .confirm-hero .deco-ring-1{
     top:-90px; right:-90px; width:320px; height:320px; border-radius:50%;
     border:24px solid rgba(66,172,185,0.08);
@@ -89,29 +103,71 @@
     background:radial-gradient(circle, rgba(231,108,171,0.35), transparent 70%);
     top:20%; left:-70px; animation:floatY 11s ease-in-out infinite;
   }
+  .confirm-hero .sparkle{color:var(--pink); animation:floatSlow 7s ease-in-out infinite;}
+  .confirm-hero .sparkle.teal{color:var(--teal);}
+  .confirm-hero .sparkle svg{width:100%; height:100%; display:block;}
+
   .confirm-hero .inner{position:relative; z-index:2; max-width:680px; margin:0 auto; text-align:center;}
+
+  @keyframes heroFadeUp{ from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+  .hero-anim{opacity:0; animation:heroFadeUp .75s cubic-bezier(.16,1,.3,1) forwards;}
+
+  .check-badge-wrap{position:relative; width:76px; height:76px; margin:0 auto 22px;}
+  .check-badge-wrap::before{
+    content:""; position:absolute; inset:-12px; border-radius:50%;
+    background:radial-gradient(circle, rgba(231,108,171,0.4), transparent 70%);
+    animation:haloPulse 2.6s ease-in-out infinite;
+  }
+  @keyframes haloPulse{ 0%,100%{transform:scale(.88); opacity:.55;} 50%{transform:scale(1.18); opacity:1;} }
   .check-badge{
-    width:60px; height:60px; border-radius:50%; margin:0 auto 22px;
+    position:relative; z-index:1; width:60px; height:60px; border-radius:50%; margin:8px auto 0;
     background:var(--dark); color:var(--white);
     display:flex; align-items:center; justify-content:center;
     box-shadow:0 16px 32px -14px rgba(27,74,82,0.5);
     animation:bounceIn .7s cubic-bezier(.34,1.56,.64,1) both;
   }
   .check-badge svg{width:26px; height:26px;}
-  .eyebrow-pill{
-    display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--teal-deep); background:rgba(66,172,185,0.1); border:1px solid rgba(66,172,185,0.3);
-    padding:8px 16px; border-radius:999px; margin-bottom:18px;
+  .crown-badge{
+    position:absolute; top:-4px; right:0; width:26px; height:26px; border-radius:50%; z-index:2;
+    background:var(--pink); color:var(--white); display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 16px -4px rgba(231,108,171,0.65); border:3px solid var(--cream-warm);
+    animation:bounceIn .7s cubic-bezier(.34,1.56,.64,1) .3s both;
   }
+  .crown-badge svg{width:12px; height:12px;}
+
+  .eyebrow-pill{
+    display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--teal-deep); background:rgba(66,172,185,0.1); border:1px solid rgba(66,172,185,0.3);
+    padding:8px 16px 8px 12px; border-radius:999px; margin-bottom:18px;
+  }
+  .eyebrow-pill svg{width:13px; height:13px;}
   .confirm-hero h1{font-size:38px; font-weight:800; color:var(--dark-deep); margin-bottom:14px; line-height:1.22;}
+  .confirm-hero h1 .hl{position:relative; color:var(--pink-deep); display:inline-block;}
+  .confirm-hero h1 .hl::after{
+    content:""; position:absolute; left:-3%; right:-3%; bottom:4px; height:11px; z-index:-1;
+    background:rgba(231,108,171,0.28); border-radius:6px; transform:rotate(-1.2deg);
+  }
   .confirm-hero .event-line{
     display:inline-flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:center;
     font-size:14.5px; font-weight:600; color:var(--dark-deep);
-    background:var(--white); border:1px solid var(--line); border-radius:999px;
-    padding:10px 20px; margin-bottom:22px; box-shadow:var(--shadow);
+    background:var(--white); border:1px solid rgba(66,172,185,0.22); border-radius:999px;
+    padding:12px 24px; margin-bottom:22px;
+    box-shadow:var(--shadow), 0 0 0 5px rgba(255,255,255,0.55);
   }
+  .confirm-hero .event-line svg{width:15px; height:15px; color:var(--teal-deep); flex-shrink:0;}
   .confirm-hero .event-line .sep{color:var(--pink); font-weight:700;}
   .confirm-hero p.lede{font-size:15.5px; color:var(--muted); max-width:480px; margin:0 auto;}
+
+  .hero-chips{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:24px;}
+  .hero-chip{
+    display:inline-flex; align-items:center; gap:7px; font-size:12.5px; font-weight:600; color:var(--dark-deep);
+    background:rgba(255,255,255,0.75); border:1px solid var(--line); padding:8px 15px; border-radius:999px;
+  }
+  .hero-chip .tick{
+    width:16px; height:16px; border-radius:50%; flex-shrink:0;
+    background:rgba(66,172,185,0.15); color:var(--teal-deep);
+    display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:800;
+  }
 
   /* ===== STEPS ===== */
   .steps{padding:70px 0 60px;}
@@ -298,17 +354,39 @@
     <div class="deco deco-ring-1" aria-hidden="true"></div>
     <div class="deco deco-ring-2" aria-hidden="true"></div>
     <div class="deco deco-blob" aria-hidden="true"></div>
+
+    <div class="deco sparkle" style="top:14%; left:12%; width:20px; height:20px; animation-delay:.3s;" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.2 7.8L22 10l-7.8 2.2L12 20l-2.2-7.8L2 10l7.8-2.2L12 0z"/></svg></div>
+    <div class="deco sparkle teal" style="top:62%; right:14%; width:16px; height:16px; animation-delay:1.4s;" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.2 7.8L22 10l-7.8 2.2L12 20l-2.2-7.8L2 10l7.8-2.2L12 0z"/></svg></div>
+    <div class="deco sparkle" style="top:8%; right:26%; width:12px; height:12px; animation-delay:.8s;" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.2 7.8L22 10l-7.8 2.2L12 20l-2.2-7.8L2 10l7.8-2.2L12 0z"/></svg></div>
+    <div class="deco sparkle teal" style="bottom:16%; left:18%; width:14px; height:14px; animation-delay:2s;" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.2 7.8L22 10l-7.8 2.2L12 20l-2.2-7.8L2 10l7.8-2.2L12 0z"/></svg></div>
+
     <div class="wrap">
       <div class="inner">
-        <div class="check-badge">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="check-badge-wrap hero-anim" style="animation-delay:0s;">
+          <div class="check-badge">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="crown-badge">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 8l4 3 5-6 5 6 4-3-2 11H5L3 8zm2 13h14v2H5v-2z"/></svg>
+          </div>
         </div>
-        <span class="eyebrow-pill" style="color:var(--pink-deep); background:rgba(231,108,171,0.1); border-color:rgba(231,108,171,0.3);">VIP access unlocked</span>
-        <h1>You're in, and you're a VIP. Your seat and your bundle are ready.</h1>
-        <div class="event-line">
-          <span>Wednesday, July 23</span><span class="sep">·</span><span>12:00 PM EST</span><span class="sep">·</span><span>about 45 minutes, plus your VIP Q&amp;A with Lauren</span>
+        <span class="eyebrow-pill hero-anim" style="animation-delay:.12s; color:var(--pink-deep); background:rgba(231,108,171,0.1); border-color:rgba(231,108,171,0.3);">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.2 7.8L22 10l-7.8 2.2L12 20l-2.2-7.8L2 10l7.8-2.2L12 0z"/></svg>
+          VIP access unlocked
+        </span>
+        <h1 class="hero-anim" style="animation-delay:.22s;">You're in, and you're a <span class="hl">VIP</span>. Your seat and your bundle are ready.</h1>
+        <div class="event-line hero-anim" style="animation-delay:.34s;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <span>Wednesday, July 23</span><span class="sep">·</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <span>12:00 PM EST</span><span class="sep">·</span><span>about 45 minutes, plus your VIP Q&amp;A with Lauren</span>
         </div>
-        <p class="lede">Smart move. Your bundle is already in your inbox. Here are the few quick things that make Wednesday count.</p>
+        <p class="lede hero-anim" style="animation-delay:.44s;">Smart move. Your bundle is already in your inbox. Here are the few quick things that make Wednesday count.</p>
+        <div class="hero-chips hero-anim" style="animation-delay:.56s;">
+          <span class="hero-chip"><span class="tick">✓</span> Seat confirmed</span>
+          <span class="hero-chip"><span class="tick">✓</span> Bundle unlocked</span>
+          <span class="hero-chip"><span class="tick">✓</span> VIP Q&amp;A included</span>
+        </div>
       </div>
     </div>
   </section>
